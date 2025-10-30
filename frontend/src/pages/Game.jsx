@@ -103,7 +103,11 @@ const Game = () => {
           </div>
           <div className="text-center">
             <div className="text-yellow-400 font-bold text-sm">LIVES</div>
-            <div className="text-white font-black text-3xl">{'❤️'.repeat(currentLives)}</div>
+            <div className="text-red-500 font-black text-3xl flex gap-1 justify-center">
+              {Array(currentLives).fill(0).map((_, i) => (
+                <Heart key={i} className="w-8 h-8 fill-current" />
+              ))}
+            </div>
           </div>
         </div>
       )}
