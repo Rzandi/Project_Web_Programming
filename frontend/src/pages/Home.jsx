@@ -46,17 +46,23 @@ const Home = () => {
         {/* Game Features */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 text-center border border-white/20 hover:bg-white/20 transition-all duration-200">
-            <div className="text-5xl mb-3">🏃</div>
+            <div className="flex justify-center mb-3">
+              <Zap className="w-16 h-16 text-yellow-400" />
+            </div>
             <h3 className="text-xl font-bold text-white mb-2">Fast-Paced Action</h3>
             <p className="text-purple-200">Speed increases with each level!</p>
           </div>
           <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 text-center border border-white/20 hover:bg-white/20 transition-all duration-200">
-            <div className="text-5xl mb-3">💰</div>
+            <div className="flex justify-center mb-3">
+              <Coins className="w-16 h-16 text-yellow-400" />
+            </div>
             <h3 className="text-xl font-bold text-white mb-2">Collect Coins</h3>
             <p className="text-purple-200">Maximize your score with coins!</p>
           </div>
           <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 text-center border border-white/20 hover:bg-white/20 transition-all duration-200">
-            <div className="text-5xl mb-3">🎮</div>
+            <div className="flex justify-center mb-3">
+              <Gamepad2 className="w-16 h-16 text-yellow-400" />
+            </div>
             <h3 className="text-xl font-bold text-white mb-2">Simple Controls</h3>
             <p className="text-purple-200">Just press SPACE to jump!</p>
           </div>
