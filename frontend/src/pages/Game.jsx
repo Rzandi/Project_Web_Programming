@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Phaser from 'phaser';
 import { Button } from '../components/ui/button';
-import { Home, RotateCcw } from 'lucide-react';
+import { Home, RotateCcw, Heart } from 'lucide-react';
 import GameScene from '../game/GameScene';
 
 const Game = () => {
