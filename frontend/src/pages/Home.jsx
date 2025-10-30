@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { Trophy, Play, Gamepad2 } from 'lucide-react';
+import { Trophy, Play, Gamepad2, Zap, Coins } from 'lucide-react';
 
 const Home = () => {
   const navigate = useNavigate();
