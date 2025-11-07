@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Echo of Light</title>
+  <!-- Press Start 2P (pixel retro) -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    html,body { height:100%; margin:0; background:#0b0b10; color:#ddd; font-family: 'Press Start 2P', monospace; }
+    #game-container{ width:100%; height:100vh; display:flex; align-items:center; justify-content:center; }
+    .credits { position: absolute; left:8px; bottom:8px; color:#999; font-size:12px }
+    /* make canvas crisp for pixel art */
+    canvas { image-rendering: pixelated; image-rendering: crisp-edges; }
+  </style>
+</head>
+<body>
+  <div id="game-container"></div>
+  <div class="credits">Echo of Light — mini pixel rogue-like</div>
+
+  <!-- Phaser as ESM import and app entry. This ensures Phaser is available to module code.
+       If your environment blocks the CDN, download phaser.min.js locally and restore the classic script tag. -->
+  <script type="module">
+    try {
+      // Import the ESM build and attach to window so scenes can reference Phaser globally
+      import('https://cdn.jsdelivr.net/npm/phaser@3.70.1/dist/phaser.esm.js')
+        .then((PhaserModule) => {
+          // Phaser default export (some builds export Phaser as default)
+          window.Phaser = PhaserModule.default || PhaserModule;
+          // now import the game entry
+          import('./src/main.js');
+        })
+        .catch((err) => {
+          console.error('Failed to load Phaser ESM from CDN:', err);
+          // fallback: try to load the non-module build (requires network and global scope)
+          const s = document.createElement('script');
+          s.src = 'https://cdn.jsdelivr.net/npm/phaser@3.70.1/dist/phaser.min.js';
+          s.onload = () => { import('./src/main.js'); };
+          s.onerror = (e) => console.error('Failed to load Phaser fallback build', e);
+          document.head.appendChild(s);
+        });
+    } catch (e) {
+      console.error('Unexpected error while loading Phaser:', e);
+    }
+  </script>
+</body>
+</html>
